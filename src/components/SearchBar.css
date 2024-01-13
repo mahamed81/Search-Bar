@@ -21,3 +21,6 @@ input {
 input:focus {
     outline: none;
 }
+ #search-icon {
+    color: royalblue;
+ }
