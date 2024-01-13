@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {FaSearch} from 'react-icons/fa'
 import './SearchBar.css'
-export default function SearchBar() {
+export default function SearchBar({setResult}) {
     const [input, setInput]= useState('')
 
     const handleFetch = (value)=>{
@@ -12,6 +12,7 @@ export default function SearchBar() {
                 return value && user && user.name && user.name.toLowerCase().includes(value)
             })
             console.log(result)
+            setResult(result)
         })
     }
     const inputHandle = (value)=>{
@@ -24,7 +25,6 @@ export default function SearchBar() {
         <FaSearch id="search-icon"/>
         <input placeholder='Type to search....' value ={input}onChange={(e)=>inputHandle
         (e.target.value)} />
-        <p>Input is: {input}</p>
     </div>
   )
 }
